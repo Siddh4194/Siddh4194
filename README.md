@@ -13,12 +13,14 @@ Dedicated to crafting real-world applications that drive automation, improve use
 - Integrated AI to reduce manual workflows by 70% and improved system performance with Redis, WebSockets, and RabbitMQ.
 
 ### 🌐 Freelance Projects
-- **CRT Bionics**: Boosted performance and UX with admin dashboard + payment integration.  
-- **Work Technologies**: Delivered a sleek, responsive UI using Tailwind CSS and React.
+- **CRT Bionics**: Boosted performance and UX with admin dashboard + payment integration.  [Link](https://worktechnologies.co.in)
+- **Work Technologies**: Delivered a sleek, responsive UI using Tailwind CSS and React.  [Link](https://ctopindia.com/)
 
 ---
 
 ## 🧠 Projects
+- 🗣️ [NMCOE AI Agen](https://aptous-nmce.vercel.app/)  
+AI Agent who give all information related to the college.
 
 - 🔐 [3rd Step Verification](https://github.com/Siddh4194/3rdStepVerification)  
 Blockchain-based solution to secure social logins using hash key verification.
@@ -30,8 +32,8 @@ Voice-command-driven tool to generate text and PDFs for accessibility support.
 
 ## ⚙️ Tech I'm Comfortable With
 **Frontend**: React, Next.js, Tailwind, Redux  
-**Backend**: Node.js, REST APIs, WebSockets, SSE  
-**Databases**: PostgreSQL, MongoDB, Redis, InfluxDB  
+**Backend**: Node.js, REST APIs, Golang, WebSockets, SSE
+**Databases**: PostgreSQL, MongoDB, Redis, InfluxDB
 **Others**: Docker, GCP, Linux, RabbitMQ, MQTT, Git, CI/CD  
 
 ---
@@ -50,7 +52,7 @@ Nanasaheb Mahadik College of Engineering, Peth
 ---
 
 ## 📫 Let's Connect!
-- 📧 siddh4194@gmail.com  
+- 📧 siddh4194@gmail.com
 - 💼 [LinkedIn](https://www.linkedin.com/in/siddhant-kadam/)  
 - 💻 [GitHub](https://github.com/Siddh4194/)
 
