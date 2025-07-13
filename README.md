@@ -1,5 +1,5 @@
 # 👋 Hi, I'm Siddhant Kadam
-
+## Code that matters, Architecture that scales
 Grateful to be building solutions that make systems smarter, faster, and more reliable.  
 Dedicated to crafting real-world applications that drive automation, improve user experience, and optimize performance.
 
