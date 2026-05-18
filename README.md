@@ -24,24 +24,38 @@ Dedicated to crafting real-world applications that drive automation, improve use
 
 Leading platform infrastructure work across multiplayer gaming, IoT fleet management, and SaaS systems:
 
-**Infrastructure & Performance**
+<details>
+<summary>⚡ Infrastructure & Performance</summary>
+
 - ⚡ Reduced Firebase read costs by **80%** by designing a Redis caching layer with optimized access patterns — enabling game server scalability without increasing DB spend
 - 🔧 Migrated high-volume logging to **InfluxDB time-series architecture**, cutting API response latency by **~500ms** and unlocking real-time telemetry monitoring
-- 🎮 Led multiplayer game infrastructure team — delivered a **1-month project in 1.5 weeks (25% faster)**, resolving critical Redis concurrency bottlenecks. Reduced CPU usage by **35%**, supporting **200 concurrent sessions** (6 players each) on a 2GB server
+- 🎮 Led multiplayer game infra team — delivered a **1-month project in 1.5 weeks (25% faster)**, resolving Redis concurrency bottlenecks. Reduced CPU by **35%**, supporting **200 concurrent sessions** on a 2GB server
 
-**IoT & Device Management**
+</details>
+
+<details>
+<summary>📡 IoT & Device Management</summary>
+
 - 📡 Built end-to-end **OTA update pipeline** for a Raspberry Pi fleet — React frontend + Golang backend + deployment scripts. Zero-downtime firmware updates across production devices
 - 🌐 Architected **multi-tenant MQTT communication** with user-level ACL rules + API-key auth, reducing auth latency via caching and securing device connections at scale
 
-**Security & Platform Reliability**
-- 🔐 Identified malicious code injection incidents and led full security hardening: deployed **Google Cloud Armor** DDoS protection, rotated credentials via **Secret Manager**, enforced **IAM policies**, and established **GPG-signed commits** across all repositories
-- 🛡️ Owned GitHub org governance — branch protection, required review gates, mandatory CI checks — improving release reliability and eliminating unsafe production merges
+</details>
 
-**Frontend & Developer Experience**
-- 🖥️ Built SaaS admin dashboard using **TypeScript + Next.js 19** with React 19 async patterns (Server Components, Suspense) — delivered ahead of schedule and adopted as team-wide frontend architecture standard
+<details>
+<summary>🔐 Security & Platform Reliability</summary>
+
+- 🔐 Identified malicious code injection incidents and led full security hardening: deployed **Google Cloud Armor** DDoS protection, rotated credentials via **Secret Manager**, enforced IAM policies, and established **GPG-signed commits** across all repositories
+- 🛡️ Owned **GitHub org governance** — branch protection, required review gates, mandatory CI checks — improving release reliability and eliminating unsafe production merges
+
+</details>
+
+<details>
+<summary>🖥️ Frontend & Developer Experience</summary>
+
+- 🖥️ Built SaaS admin dashboard using **TypeScript + Next.js 19** with React 19 async patterns (Server Components, Suspense) — delivered ahead of schedule and adopted as **team-wide frontend architecture standard**
 - 🌍 Implemented **multilingual frontend caching** via IndexedDB, reducing page load times by **1.4 seconds** for international users
 
----
+</details>
 
 ### 🌐 Full Stack Developer — Work Technologies *(Jan 2024 – Mar 2024 · Freelance)*
 
