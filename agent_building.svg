@@ -1,0 +1,243 @@
+<svg viewBox="0 0 800 220" xmlns="http://www.w3.org/2000/svg" width="100%">
+  <defs>
+    <style>
+      .bg { fill: #0d1117; }
+      .card { fill: #161b22; rx: 8; }
+      .border { stroke: #30363d; stroke-width: 1; fill: none; }
+      .border-blue { stroke: #58a6ff; stroke-width: 1.5; fill: none; }
+      .lb-fill { fill: #1c2128; }
+      .lb-text { fill: #58a6ff; font-family: monospace; font-size: 12px; font-weight: 600; }
+      .node-fill { fill: #161b22; }
+      .node-text { font-family: monospace; font-size: 11px; font-weight: 500; }
+      .healthy-text { fill: #3fb950; }
+      .unhealthy-text { fill: #f85149; }
+      .muted { fill: #8b949e; font-family: monospace; font-size: 10px; }
+      .label { fill: #8b949e; font-family: monospace; font-size: 10px; }
+      .log-text { font-family: monospace; font-size: 10px; }
+      .log-ok { fill: #3fb950; }
+      .log-err { fill: #f85149; }
+      .log-info { fill: #58a6ff; }
+      .log-warn { fill: #d29922; }
+      .log-muted { fill: #6e7681; }
+      .section-label { fill: #484f58; font-family: monospace; font-size: 9px; letter-spacing: 1.5px; }
+      .wip { fill: #1f3d5c; font-family: monospace; font-size: 9px; }
+      .wip-text { fill: #58a6ff; font-family: monospace; font-size: 9px; }
+      .title-text { fill: #e6edf3; font-family: monospace; font-size: 12px; font-weight: 700; }
+      .connector { stroke: #21262d; stroke-width: 1; fill: none; stroke-dasharray: 3 3; }
+      .connector-active { stroke: #58a6ff; stroke-width: 1; fill: none; stroke-dasharray: 4 3; }
+
+      /* Unhealthy node pulse */
+      @keyframes unhealthy-pulse {
+        0%, 100% { stroke: #da3633; }
+        50% { stroke: #f85149; }
+      }
+      .node-unhealthy-border {
+        stroke: #da3633;
+        stroke-width: 1.5;
+        fill: #1c1010;
+        animation: unhealthy-pulse 1.2s ease-in-out infinite;
+      }
+
+      /* Healthy dot blink */
+      @keyframes blink-green {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.2; }
+      }
+      .dot-green {
+        fill: #3fb950;
+        animation: blink-green 2s ease-in-out infinite;
+      }
+      .dot-green-2 { fill: #3fb950; animation: blink-green 2s ease-in-out infinite; animation-delay: 0.4s; }
+      .dot-green-3 { fill: #3fb950; animation: blink-green 2s ease-in-out infinite; animation-delay: 0.8s; }
+
+      /* Unhealthy dot fast blink */
+      @keyframes blink-red {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.1; }
+      }
+      .dot-red {
+        fill: #f85149;
+        animation: blink-red 0.7s ease-in-out infinite;
+      }
+
+      /* Log lines fade in one by one */
+      @keyframes fadein {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      .log1 { opacity: 0; animation: fadein 0.4s ease forwards; animation-delay: 0.3s; }
+      .log2 { opacity: 0; animation: fadein 0.4s ease forwards; animation-delay: 1.0s; }
+      .log3 { opacity: 0; animation: fadein 0.4s ease forwards; animation-delay: 1.7s; }
+      .log4 { opacity: 0; animation: fadein 0.4s ease forwards; animation-delay: 2.4s; }
+      .log5 { opacity: 0; animation: fadein 0.4s ease forwards; animation-delay: 3.1s; }
+
+      /* Scanning line on LB */
+      @keyframes scan {
+        0% { x: 30; opacity: 0; }
+        10% { opacity: 0.6; }
+        90% { opacity: 0.6; }
+        100% { x: 260; opacity: 0; }
+      }
+      .scan-line {
+        animation: scan 2.5s linear infinite;
+      }
+
+      /* Active connector dash flow */
+      @keyframes dash-flow {
+        from { stroke-dashoffset: 14; }
+        to { stroke-dashoffset: 0; }
+      }
+      .flow-line {
+        stroke: #58a6ff;
+        stroke-width: 1;
+        stroke-dasharray: 4 3;
+        fill: none;
+        opacity: 0;
+        animation: fadein 0.4s ease forwards, dash-flow 0.6s linear infinite;
+        animation-delay: 1.7s, 1.7s;
+      }
+
+      /* Agent badge pulse */
+      @keyframes agent-glow {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.5; }
+      }
+      .agent-dot {
+        fill: #58a6ff;
+        animation: agent-glow 1.5s ease-in-out infinite;
+      }
+
+      /* Tags slide up */
+      @keyframes slideup {
+        from { opacity: 0; transform: translateY(6px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .tag1 { opacity: 0; animation: slideup 0.4s ease forwards; animation-delay: 3.6s; }
+      .tag2 { opacity: 0; animation: slideup 0.4s ease forwards; animation-delay: 3.8s; }
+      .tag3 { opacity: 0; animation: slideup 0.4s ease forwards; animation-delay: 4.0s; }
+      .tag4 { opacity: 0; animation: slideup 0.4s ease forwards; animation-delay: 4.2s; }
+
+      /* cursor blink */
+      @keyframes cursor {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
+      }
+      .cursor { animation: cursor 1s step-end infinite; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="220" rx="10" class="bg"/>
+
+  <!-- Outer card border -->
+  <rect x="10" y="10" width="780" height="200" rx="8" stroke="#30363d" stroke-width="0.8" fill="none"/>
+  <!-- Left blue accent bar -->
+  <rect x="10" y="10" width="3" height="200" rx="1" fill="#58a6ff"/>
+
+  <!-- Section label top left -->
+  <text x="24" y="26" class="section-label">CURRENTLY BUILDING</text>
+
+  <!-- WIP badge -->
+  <rect x="680" y="14" width="96" height="16" rx="4" class="wip"/>
+  <text x="728" y="26" text-anchor="middle" class="wip-text">● IN PROGRESS</text>
+
+  <!-- Title -->
+  <text x="24" y="46" class="title-text">AI Agent — Load Balancer Monitor &amp; Diagnostician</text>
+  <text x="478" y="46" class="cursor" fill="#58a6ff" font-family="monospace" font-size="12">|</text>
+
+  <!-- ── LEFT PANEL: node diagram ── -->
+
+  <!-- Load Balancer box -->
+  <rect x="24" y="58" width="240" height="28" rx="5" class="lb-fill" stroke="#58a6ff" stroke-width="1"/>
+  <!-- scanning shimmer -->
+  <rect y="58" width="40" height="28" rx="5" fill="#58a6ff" opacity="0.06" class="scan-line"/>
+  <circle cx="36" cy="72" r="3" class="agent-dot"/>
+  <text x="48" y="76" class="lb-text">Load Balancer  ·  monitoring</text>
+
+  <!-- Connector lines LB → nodes -->
+  <line x1="68" y1="86" x2="52" y2="110" stroke="#21262d" stroke-width="0.8" stroke-dasharray="2 2"/>
+  <line x1="108" y1="86" x2="108" y2="110" stroke="#21262d" stroke-width="0.8" stroke-dasharray="2 2"/>
+  <line x1="168" y1="86" x2="168" y2="110" stroke="#21262d" stroke-width="0.8" stroke-dasharray="2 2"/>
+  <line x1="220" y1="86" x2="234" y2="110" stroke="#21262d" stroke-width="0.8" stroke-dasharray="2 2"/>
+
+  <!-- Active connector to unhealthy node (node 3) animated -->
+  <line x1="168" y1="86" x2="168" y2="110" class="flow-line"/>
+
+  <!-- Node 1 - healthy -->
+  <rect x="24" y="110" width="64" height="52" rx="5" fill="#161b22" stroke="#238636" stroke-width="1"/>
+  <circle cx="56" cy="122" r="4" class="dot-green"/>
+  <text x="56" y="138" text-anchor="middle" class="node-text healthy-text">Node 1</text>
+  <text x="56" y="152" text-anchor="middle" class="label">healthy</text>
+
+  <!-- Node 2 - healthy -->
+  <rect x="76" y="110" width="64" height="52" rx="5" fill="#161b22" stroke="#238636" stroke-width="1"/>
+  <circle cx="108" cy="122" r="4" class="dot-green-2"/>
+  <text x="108" y="138" text-anchor="middle" class="node-text healthy-text">Node 2</text>
+  <text x="108" y="152" text-anchor="middle" class="label">healthy</text>
+
+  <!-- Node 3 - UNHEALTHY -->
+  <rect x="136" y="110" width="64" height="52" rx="5" class="node-unhealthy-border"/>
+  <circle cx="168" cy="122" r="4" class="dot-red"/>
+  <text x="168" y="138" text-anchor="middle" class="node-text unhealthy-text">Node 3</text>
+  <text x="168" y="152" text-anchor="middle" class="log-err" font-family="monospace" font-size="10px">unhealthy</text>
+
+  <!-- Node 4 - healthy -->
+  <rect x="200" y="110" width="64" height="52" rx="5" fill="#161b22" stroke="#238636" stroke-width="1"/>
+  <circle cx="232" cy="122" r="4" class="dot-green-3"/>
+  <text x="232" y="138" text-anchor="middle" class="node-text healthy-text">Node 4</text>
+  <text x="232" y="152" text-anchor="middle" class="label">healthy</text>
+
+  <!-- ── RIGHT PANEL: agent log ── -->
+  <rect x="284" y="58" width="496" height="148" rx="6" fill="#010409" stroke="#21262d" stroke-width="0.8"/>
+
+  <!-- Log header -->
+  <text x="296" y="76" class="label">agent@monitor ~ $</text>
+  <text x="376" y="76" fill="#e6edf3" font-family="monospace" font-size="10px"> ./diagnose --watch</text>
+
+  <line x1="284" y1="82" x2="780" y2="82" stroke="#21262d" stroke-width="0.5"/>
+
+  <!-- Log lines -->
+  <g class="log1">
+    <text x="296" y="98" class="log-text log-ok">✓</text>
+    <text x="308" y="98" class="log-text log-muted">node-1  healthy    [cpu: 11%  mem: 32%  disk: 44%]</text>
+  </g>
+
+  <g class="log2">
+    <text x="296" y="112" class="log-text log-ok">✓</text>
+    <text x="308" y="112" class="log-text log-muted">node-2  healthy    [cpu: 19%  mem: 47%  disk: 61%]</text>
+  </g>
+
+  <g class="log3">
+    <text x="296" y="126" class="log-text log-err">✗</text>
+    <text x="308" y="126" class="log-text log-err">node-3  UNHEALTHY  — triggering autonomous diagnosis</text>
+  </g>
+
+  <g class="log4">
+    <text x="296" y="140" class="log-text log-info">→</text>
+    <text x="308" y="140" class="log-text log-info">agent SSHing into node-3 · running diagnostics...</text>
+  </g>
+
+  <g class="log5">
+    <text x="296" y="154" class="log-text log-warn">!</text>
+    <text x="308" y="154" class="log-text log-warn">root cause: memory exhausted (97%) — OOM kill on pid 3821</text>
+  </g>
+
+  <!-- Tags -->
+  <g class="tag1">
+    <rect x="296" y="168" width="68" height="18" rx="9" fill="#1c2128" stroke="#30363d" stroke-width="0.8"/>
+    <text x="330" y="181" text-anchor="middle" class="label">Go</text>
+  </g>
+  <g class="tag2">
+    <rect x="372" y="168" width="68" height="18" rx="9" fill="#1c2128" stroke="#30363d" stroke-width="0.8"/>
+    <text x="406" y="181" text-anchor="middle" class="label">AI Agent</text>
+  </g>
+  <g class="tag3">
+    <rect x="448" y="168" width="100" height="18" rx="9" fill="#1c2128" stroke="#30363d" stroke-width="0.8"/>
+    <text x="498" y="181" text-anchor="middle" class="label">Infra Automation</text>
+  </g>
+  <g class="tag4">
+    <rect x="556" y="168" width="68" height="18" rx="9" fill="#1c2128" stroke="#30363d" stroke-width="0.8"/>
+    <text x="590" y="181" text-anchor="middle" class="label">SRE</text>
+  </g>
+
+</svg>
