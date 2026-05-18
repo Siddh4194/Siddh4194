@@ -51,11 +51,14 @@ Leading platform infrastructure work across multiplayer gaming, IoT fleet manage
 
 ---
 
-## 🔨 Currently Building
+## 🔨 Currently Building (Personal Project)
 
 > **AI Agent — Autonomous Load Balancer Monitor & Diagnostician** `[In Progress]`
 
 An intelligent agent that continuously monitors a load balancer and its nodes. When a node turns unhealthy, the agent autonomously SSHes into the server, diagnoses the root cause (CPU spike, memory exhaustion, disk full, crashed process, etc.), and reports findings — reducing MTTR without human intervention.
+
+ 
+![agent-animation](./agent_building.svg)
 
 ```
 Monitor nodes → Detect unhealthy state → SSH into server → Diagnose root cause → Report / Auto-remediate
