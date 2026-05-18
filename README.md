@@ -1,6 +1,6 @@
 <div align="center">
 
-![typing](https://readme-typing-svg.demolab.com?font=Fira+Code&size=15&pause=1000&color=58A6FF&center=true&width=600&lines=Code+that+matters.+Architecture+that+scales.;Full-Stack+%7C+Platform+Infrastructure+%7C+IoT;Building+systems+that+are+smarter%2C+faster%2C+reliable.)
+![typing](https://readme-typing-svg.demolab.com?font=Fira+Code&size=15&pause=1000&color=58A6FF&center=true&width=600&lines=Code+that+matters.+Architecture+that+scales.;Full-Stack+%7C+Platform+Infrastructure;Building+systems+that+are+smarter%2C+faster%2C+reliable.)
 
 # Hey, I'm Siddhant Kadam 👋
 
